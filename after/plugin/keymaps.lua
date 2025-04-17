@@ -18,12 +18,12 @@ vim.keymap.set('i', '?', '?<c-g>u', opts)
 vim.keymap.set('n', '<expr> k', '(v:count > 5 ? "m\'" . v:count : "") . \'k\'', opts)
 vim.keymap.set('n', '<expr> j', '(v:count > 5 ? "m\'" . v:count : "") . \'j\'', opts)
 -- Moving text
-vim.keymap.set('v', 'J', ':m \'>+1<CR>gv=gv',  opts)
-vim.keymap.set('v', 'K', ':m \'>-2<CR>gv=gv',  opts)
-vim.keymap.set('n', '<leader>j', ':m .+1<CR>==',  opts)
-vim.keymap.set('n', '<leader>k', ':m .-2<CR>==',  opts)
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", opts)
+vim.keymap.set('v', 'K', ":m '>-2<CR>gv=gv", opts)
+vim.keymap.set('n', '<leader>j', ':m .+1<CR>==', opts)
+vim.keymap.set('n', '<leader>k', ':m .-2<CR>==', opts)
 
-vim.keymap.set('n', '<space>ft', '<cmd>:Format<CR>',  opts)
+vim.keymap.set('n', '<space>ft', '<cmd>:Format<CR>', opts)
 -- GIT
 -- Fugitive git bindings
 vim.keymap.set('n', '<leader>ga', ':Git add %:p<CR><CR>', opts)

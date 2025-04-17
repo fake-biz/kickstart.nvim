@@ -1,4 +1,3 @@
-
 -- Settings
 vim.opt.relativenumber = true
 -- The backspace key has slightly unintuitive behavior by default. For example,
@@ -36,7 +35,7 @@ vim.opt.hlsearch = false
 -- Disable swapfiles
 vim.opt.swapfile = false
 -- undo settings
-vim.opt.undodir = vim.fn.expand('$HOME') .. '/nvim/undo'
+vim.opt.undodir = vim.fn.expand '$HOME' .. '/nvim/undo'
 vim.opt.undofile = true
 -- Enables 24-bit RGB color
 vim.opt.termguicolors = true
@@ -48,75 +47,67 @@ vim.opt.showmode = false
 vim.opt.signcolumn = 'yes'
 -- Highlight current line of cursor
 vim.opt.cursorline = true
--- Clipboard settings
--- ALWAYS use the clipboard for ALL operations (instead of interacting with
---the '+' and/or '*' registers explicitly)
--- vim.opt.clipboard = 'unnamedplus'
 -- Wrappring settings
 vim.opt.wrap = false
 --global status line
 vim.opt.laststatus = 3
 
-
 -- Colorscheme
 -- https://github.com/projekt0n/github-nvim-theme
-require("github-theme").setup({
+require('github-theme').setup {
   specs = {
     all = {
       diag = {
         error = 'red',
         hint = 'orange',
       },
-    }
+    },
   },
 
   groups = {
     all = {
-      StatusLine = {link = "Comment"},
-      Search = {link = "TSNote"},
-      TSField = {}
-    }
-  }
-})
+      StatusLine = { link = 'Comment' },
+      Search = { link = 'TSNote' },
+      TSField = {},
+    },
+  },
+}
 -- vim.cmd [[colorscheme github_dark_colorblind]]
-vim.cmd.colorscheme('github_dark_colorblind')
-
-
-
+vim.cmd.colorscheme 'github_dark_colorblind'
 
 -- Telescope config
 -- mostly defaults pulled from the docs
-local actions = require('telescope.actions')
-require('telescope').setup{
-    defaults = {
+local actions = require 'telescope.actions'
+require('telescope').setup {
+  defaults = {
     -- Default configuration for telescope goes here:
     -- config_key = value,
-    sorting_strategy = "ascending",
+    sorting_strategy = 'ascending',
     -- winblend = 30,
     layout_config = {
-        horizontal = {
-            prompt_position = "top",
-            width = 0.95,
-            height = 0.95
-        }
+      horizontal = {
+        prompt_position = 'top',
+        width = 0.95,
+        height = 0.95,
+      },
     },
     mappings = {
       i = {
         -- map actions.which_key to <C-h> (default: <C-/>)
         -- actions.which_key shows the mappings for your picker,
         -- e.g. git_{create, delete, ...}_branch for the git_branches picker
-        ["<C-y>"] = actions.select_default,
-      }
-    }
+        ['<C-y>'] = actions.select_default,
+      },
+    },
   },
   extensions = {
     fzf = {
-      fuzzy = true,                    -- false will only do exact matching
+      fuzzy = true, -- false will only do exact matching
       override_generic_sorter = false, -- override the generic sorter
-      override_file_sorter = true,     -- override the file sorter
-      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-                                       -- the default case_mode is "smart_case"
-    }
+      override_file_sorter = true, -- override the file sorter
+      case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
+      -- the default case_mode is "smart_case"
+    },
   },
 }
 -- require('telescope').load_extension('fzf')
@@ -127,16 +118,15 @@ require('telescope').setup{
 vim.g.user_emmet_mode = 'n'
 vim.g.user_emmet_leader_key = ','
 vim.g.user_emmet_settings = {
-    typescript = {
-        extends = 'jsx',
-    },
-    typescriptreact = {
-        extends = 'jsx',
-    }
+  typescript = {
+    extends = 'jsx',
+  },
+  typescriptreact = {
+    extends = 'jsx',
+  },
 }
 
 vim.g.neoformat_try_node_exe = 1
-
 
 -- -- Show diagnostic popup on cursor hover
 -- vim.g.updatetime = 300
@@ -145,4 +135,4 @@ vim.g.neoformat_try_node_exe = 1
 -- Rust format on save
 vim.g.rustfmt_autosave = 1
 -- Filetype detection
-vim.cmd('filetype plugin indent on')
+vim.cmd 'filetype plugin indent on'
